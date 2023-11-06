@@ -19,4 +19,4 @@ Housemates is an app designed to simplify the lives of roommates by helping them
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/housemates.git
+   https://github.com/serzot/housemates.git
