@@ -7,7 +7,7 @@ import RegistrationForm from './components/RegistrationForm';
 function App() {
     return (
             <div>
-                <h1>Roommates App</h1>
+
                 <RegistrationForm />
             </div>
     );
