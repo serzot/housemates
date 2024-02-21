@@ -1,0 +1,149 @@
+.login_section{
+    display: flex;
+    height: 100vh;
+}
+
+.background_img_login{
+    width: 70%;
+    background-image: url(../../images/login_background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.gradient_background {
+    background: rgb(66,6,83);
+    background: linear-gradient(100deg, rgba(66,6,83,.5) 0%, rgba(195,24,237,.5) 50%, rgba(248,0,255,.5) 100%);
+    height: 100vh;
+}
+
+.sign_in_form h2{
+    font-size: 50px;
+    margin-left: 75px;
+    margin-top: 130px;
+}
+
+.inputs_login input{
+    display: block;
+    margin-left: 75px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+    width: 260px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.inputs_login input::placeholder {
+    font-size: 20px;
+
+}
+
+.label{
+    margin-left: 75px;
+    font-size: 24px;
+}
+
+.sign_in_btn{
+    background-image: linear-gradient(to right, #DA22FF 0%, #9733EE 51%, #DA22FF 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 50px;
+    margin-left: 75px;
+    border: none;
+    margin-top: 22px;
+    margin-right: 40px;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.sign_in_btn:hover{
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+a.link_sign_in{
+    text-decoration: none;
+    color: black;
+}
+
+h1.login_housemates_h1{
+    font-size: 10em;
+    padding-top: 13vh;
+    text-align: center;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0;
+    opacity: .6;
+}
+
+p.login_failed{
+    margin-left: 100px;
+    margin-top: 25px;
+    color: red;
+    font-weight: 400;
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .background_img_login {
+        width: 60%;
+    }
+
+    h1.login_housemates_h1 {
+        font-size: 6em;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) { 
+    .background_img_login {
+        width: 56%;
+    }
+
+    h1.login_housemates_h1 {
+        font-size: 5em;
+    }
+}
+
+@media only screen and (min-width: 431px) and (max-width: 767px) {
+    .background_img_login {
+        width: 27%;
+        background-position-x: -238px;
+    }
+
+    h1.login_housemates_h1 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    h1.login_housemates_h1 {
+        display: none;
+    }
+
+    .background_img_login {
+        width: 0;
+    }
+    .sign_in_form h2 {
+        margin-top: 120px;
+    }
+    a.link_sign_in {
+        display: block;
+        margin-left: 50%;
+        padding-bottom: 50px;
+    }
+    .sign_in_btn {
+        margin-left: 94px;
+        margin-top: 14px;
+    }
+}

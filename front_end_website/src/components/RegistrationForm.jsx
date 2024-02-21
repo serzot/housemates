@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './registration.css';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import './styles/registration.css';
 
 
 const RegistrationForm = () => {
@@ -8,10 +9,10 @@ const RegistrationForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [registrationStatus, setRegistrationStatus] = useState(null);
+    const navigate = useNavigate();
 
     const handleRegistration = async () => {
         try {
-            console.log({ username, email, password });
             const response = await axios.post(
                 'http://127.0.0.1:8000/api/auth/register/',
                 {
@@ -26,11 +27,10 @@ const RegistrationForm = () => {
                 }
             );
             console.log(response.data);
-            // Handle successful registration
             setRegistrationStatus('success');
+            navigate('/login');
         } catch (error) {
             console.error(error);
-            // Handle registration error
             setRegistrationStatus('error');
         }
     };
@@ -38,9 +38,10 @@ const RegistrationForm = () => {
     return (
         <div>
             {registrationStatus === 'success' ? (
+
                 <div>
                     <p>Registration successful!</p>
-                    {/* Add additional UI elements or redirect to another page */}
+
                 </div>
             ) : (
                 <>
@@ -62,8 +63,10 @@ const RegistrationForm = () => {
                             </div>
 
                             <button class="sign_up_btn" onClick={handleRegistration}>Sign Up</button>
-                            <a class="link_sign_in" href="#">Sign In </a>
-                            {registrationStatus === 'error' && <p>Registration failed. Please try again.</p>}
+                            <Link class="link_sign_in" to="/login">Sign In</Link>
+
+
+                            {registrationStatus === 'error' && <p class="registration_failed">Registration failed. Please try again.</p>}
                         </div>
                     </div>
 
