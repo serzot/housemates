@@ -1,35 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { login } from '../utils/auth';
 import './styles/login.css';
 
 const LoginPage = () => {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
+    const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginStatus, setLoginStatus] = useState(null);
     const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post(
-                'http://127.0.0.1:8000/api/auth/register/',
-                {
-                    username,
-                    email,
-                    password,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            );
-            console.log(response.data);
+            await login(usernameOrEmail, password);
             setLoginStatus('success');
-            //navigate('/login');
+            navigate('/');
         } catch (error) {
             console.error(error);
+            setUsernameOrEmail('');
+            setPassword('');
             setLoginStatus('error');
         }
     };
@@ -43,9 +32,19 @@ const LoginPage = () => {
                 <h2>Sign In</h2>
                 <div class="inputs_login">
                     <span class="label">Username or Email</span>
-                    <input type="text" placeholder="Username" />
+                    <input 
+                        type="text" 
+                        placeholder="Username or Email" 
+                        value={usernameOrEmail} 
+                        onChange={(e) => setUsernameOrEmail(e.target.value)}
+                    />
                     <span class="label">Password</span>
-                    <input type="password" placeholder="****************" />
+                    <input
+                        type="password"
+                        placeholder="****************"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
                 </div>
 
                 <button class="sign_in_btn" onClick={handleLogin}>Sign In</button>

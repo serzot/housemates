@@ -31,6 +31,9 @@ const RegistrationForm = () => {
             navigate('/login');
         } catch (error) {
             console.error(error);
+            setUsername('');
+            setEmail('');
+            setPassword('');
             setRegistrationStatus('error');
         }
     };
