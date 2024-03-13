@@ -48,7 +48,7 @@ const DashboardPage = () => {
                                     <li>ID: {userDetails.id}</li>
                                     <li>Username: {userDetails.username}</li>
                                     <li>Email: {userDetails.email}</li>
-                                    <li>Name: {userDetails.first_name} {userDetails.last_name}</li>
+                                    <li>Name: {userDetails.first_name} {userDetails.last_name} </li>
                                 </div>
                             </section>
                             <section id="create_household">
