@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:8000/api/auth/';
 export const login = async (usernameOrEmail, password) => {
     try {
         const response = await axios.post(`${API_URL}token/`, {
-            username_or_email: usernameOrEmail,
+            username: usernameOrEmail,
             password,
         });
 
@@ -18,6 +18,7 @@ export const login = async (usernameOrEmail, password) => {
 
 export const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('userDetails');
 };
 
 export const isLoggedIn = () => {
@@ -32,6 +33,7 @@ export const getUserDetails = async () => {
             },
         });
 
+        localStorage.setItem('userDetails', JSON.stringify(response.data));
         return response.data;
     } catch (error) {
         throw error;

@@ -8,12 +8,12 @@ import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
+
     <Router>
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/registration" element={<RegistrationForm />} />
             <Route path="/login" element={<LoginPage />} />
-
             <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </Router>

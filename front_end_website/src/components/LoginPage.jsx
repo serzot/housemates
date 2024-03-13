@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
-import { login } from '../utils/auth';
+import { login, isLoggedIn } from '../utils/auth';
 import './styles/login.css';
 
 const LoginPage = () => {
@@ -14,7 +14,7 @@ const LoginPage = () => {
         try {
             await login(usernameOrEmail, password);
             setLoginStatus('success');
-            navigate('/');
+            navigate('/dashboard');
         } catch (error) {
             console.error(error);
             setUsernameOrEmail('');
