@@ -23,6 +23,12 @@ const LoginPage = () => {
         }
     };
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            handleLogin();
+        }
+    };
+
     return (
         <div class="login_section">
             <div class="background_img_login">
@@ -37,6 +43,7 @@ const LoginPage = () => {
                         placeholder="Username or Email" 
                         value={usernameOrEmail} 
                         onChange={(e) => setUsernameOrEmail(e.target.value)}
+                        onKeyPress={handleKeyPress}
                     />
                     <span class="label">Password</span>
                     <input
@@ -44,6 +51,7 @@ const LoginPage = () => {
                         placeholder="****************"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        onKeyPress={handleKeyPress}
                     />
                 </div>
 
